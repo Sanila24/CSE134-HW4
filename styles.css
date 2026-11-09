@@ -1,0 +1,561 @@
+:root {
+  --font-body: "Segoe UI", Arial, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+
+  --color-text: #253544;
+  --color-muted: #526477;
+  --color-background: #f4f6f5;
+  --color-surface: #ffffff;
+  --color-accent: #086b62;
+  --color-accent-light: #e5f3ef;
+  --color-border: #d5e0dd;
+  --color-header: #142e3a;
+
+  --color-accent-hover: #06483f;
+  --color-header-text: #ffffff;
+  --color-nav-border: #80969d;
+  --color-nav-hover: #2b4b58;
+  --color-active-text: #142e3a;
+  --color-control-border: #728780;
+  --color-button-text: #ffffff;
+  --color-focus: #b85600;
+  --color-header-focus: #ffd27d;
+
+  --color-disabled-background: #e5eae8;
+  --color-disabled-text: #52615d;
+  --color-disabled-border: #a2b1ab;
+
+  --color-error: #a02020;
+  --color-warning-border: #805400;
+  --color-warning-background: #fff4d6;
+  --color-warning-text: #503600;
+
+  --page-width: 68rem;
+  --space: 1.5rem;
+  --radius: 0.75rem;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  background: var(--color-background);
+  overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 2.75rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 1rem;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+li + li {
+  margin-top: 0.4rem;
+}
+
+a {
+  color: var(--color-accent);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.08em;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+  text-decoration-thickness: 0.16em;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+summary:focus,
+audio:focus,
+video:focus,
+iframe:focus {
+  outline: 0.2rem solid var(--color-focus);
+  outline-offset: 0.25rem;
+}
+
+/* Child combinator: targets the page's main header. */
+body > header {
+  background: var(--color-header);
+  color: var(--color-header-text);
+  padding: 2.5rem max(
+    1.25rem,
+    calc((100% - var(--page-width)) / 2)
+  );
+  border-bottom: 0.3rem solid var(--color-accent);
+}
+
+/* Descendant combinator: targets lists inside navigation. */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: var(--space) 0 0;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  padding: 0.6em 1em;
+  border: 0.1rem solid var(--color-nav-border);
+  border-radius: 0.4rem;
+  color: var(--color-header-text);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--color-header-text);
+  background: var(--color-nav-hover);
+}
+
+/* Attribute selector: highlights the current navigation page. */
+nav a[aria-current="page"] {
+  color: var(--color-active-text);
+  background: var(--color-accent-light);
+  border-color: var(--color-accent-light);
+  font-weight: 700;
+}
+
+nav a:focus {
+  outline-color: var(--color-header-focus);
+}
+
+main {
+  max-width: var(--page-width);
+  margin: 2.5rem auto;
+  padding: 0 1.25rem;
+}
+
+main > section,
+personal-intro {
+  display: block;
+  padding: 2rem;
+  margin-bottom: var(--space);
+  border: 0.1rem solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+section > article {
+  padding: var(--space);
+  border: 0.1rem solid var(--color-border);
+  border-left: 0.25rem solid var(--color-accent);
+  border-radius: 0.5rem;
+  background: var(--color-background);
+}
+
+/* Adjacent sibling combinator: separates consecutive articles. */
+article + article {
+  margin-top: var(--space);
+}
+
+h3:not(:first-child) {
+  margin-top: var(--space);
+}
+
+section > :last-child,
+article > :last-child {
+  margin-bottom: 0;
+}
+
+/* Two-column layout for the portrait and introduction. */
+personal-intro {
+  display: grid;
+  grid-template-columns: 11.25rem minmax(0, 1fr);
+  column-gap: 2rem;
+  align-items: start;
+  background: var(--color-accent-light);
+}
+
+personal-intro picture {
+  display: block;
+  width: 11.25rem;
+  max-width: 100%;
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+personal-intro h2,
+personal-intro p {
+  grid-column: 2;
+}
+
+personal-intro h2 {
+  align-self: end;
+}
+
+personal-intro p {
+  margin-bottom: 0;
+}
+
+personal-intro img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+audio,
+iframe {
+  max-width: 100%;
+}
+
+audio {
+  width: 100%;
+}
+
+iframe {
+  border: 0.1rem solid var(--color-border);
+}
+
+progress {
+  accent-color: var(--color-accent);
+  max-width: 100%;
+}
+
+#portfolio-progress {
+  display: block;
+  width: 100%;
+  max-width: 25rem;
+  height: 1rem;
+  margin: 0.75rem 0;
+}
+
+fieldset {
+  min-width: 0;
+  border: 0.1rem solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: var(--space);
+  margin: 0 0 var(--space);
+}
+
+legend {
+  font-weight: 700;
+  padding: 0 0.4rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  max-width: 100%;
+  width: 100%;
+  padding: 0.6em 0.8em;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 0.1rem solid var(--color-control-border);
+  border-radius: 0.3rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+}
+
+button {
+  padding: 0.65em 1.2em;
+  color: var(--color-button-text);
+  background: var(--color-accent);
+  border: 0.1rem solid var(--color-accent);
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+}
+
+button:disabled {
+  background: var(--color-disabled-background);
+  color: var(--color-disabled-text);
+  border-color: var(--color-disabled-border);
+  cursor: not-allowed;
+}
+
+#form-note {
+  color: var(--color-muted);
+}
+
+body > footer {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: var(--space) 1.25rem 2.5rem;
+  border-top: 0.1rem solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+/* Stack navigation and introduction on narrow screens. */
+@media (max-width: 40rem) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  body > header {
+    padding: 1.5rem 1.25rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav a {
+    padding: 0.7em 1em;
+  }
+
+  main {
+    margin: var(--space) auto;
+  }
+
+  main > section,
+  personal-intro {
+    padding: 1.25rem;
+  }
+
+  personal-intro {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  personal-intro picture,
+  personal-intro h2,
+  personal-intro p {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  personal-intro h2 {
+    margin-bottom: 0;
+  }
+
+  fieldset,
+  section > article {
+    padding: 1rem;
+  }
+}
+
+/* Contact form layout. */
+.contact-form,
+.contact-form .form-field {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.contact-form {
+  gap: 1.25rem;
+  max-width: 40rem;
+}
+
+.contact-form label {
+  margin-bottom: 0;
+}
+
+.contact-form button {
+  justify-self: start;
+}
+
+.contact-form .field-help {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+/* Native validation styling. */
+.contact-form input:required,
+.contact-form textarea:required {
+  border-width: 2px;
+}
+
+.contact-form input:user-invalid,
+.contact-form textarea:user-invalid {
+  border-color: var(--color-error);
+  border-style: dashed;
+}
+
+.contact-form input:user-valid,
+.contact-form textarea:user-valid {
+  border-color: var(--color-accent);
+  border-style: solid;
+}
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible,
+.contact-form button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+/* JavaScript-enhanced form feedback. */
+.contact-form [hidden] {
+  display: none;
+}
+
+.contact-form .form-feedback {
+  padding: 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: 0.4rem;
+}
+
+.contact-form .form-feedback h3 {
+  margin: 0 0 0.5rem;
+}
+
+.contact-form .form-feedback p,
+.contact-form .form-feedback ul {
+  margin-bottom: 0;
+}
+
+.contact-form #error-area {
+  border-color: var(--color-error);
+  border-style: dashed;
+}
+
+.contact-form [aria-invalid="true"] {
+  border: 2px dashed var(--color-error);
+}
+
+.contact-form #info-area.is-warning {
+  border-color: var(--color-warning-border);
+  background: var(--color-warning-background);
+  color: var(--color-warning-text);
+}
+
+.contact-form #info-area.is-limit {
+  border-style: double;
+}
+
+/* Dark theme selected by the user. */
+:root[data-theme="dark"] {
+  --color-text: #e8f1f6;
+  --color-muted: #b9cbd5;
+  --color-background: #111c25;
+  --color-surface: #1c2b36;
+  --color-accent: #76d8c6;
+  --color-accent-hover: #a0eddf;
+  --color-accent-light: #173c36;
+  --color-border: #526b79;
+  --color-header: #0d1924;
+
+  --color-header-text: #f4f8fa;
+  --color-nav-border: #80969d;
+  --color-nav-hover: #2b4b58;
+  --color-active-text: #e8f1f6;
+  --color-control-border: #91a8b4;
+  --color-button-text: #102724;
+  --color-focus: #ffd27d;
+  --color-header-focus: #ffd27d;
+
+  --color-disabled-background: #344650;
+  --color-disabled-text: #c0cdd4;
+  --color-disabled-border: #758a95;
+
+  --color-error: #ff9a9a;
+  --color-warning-border: #e3b85c;
+  --color-warning-background: #3c301b;
+  --color-warning-text: #ffe2a0;
+
+  color-scheme: dark;
+}
+
+/* Theme switch control. */
+.theme-toggle {
+  margin-top: 1.25rem;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.theme-toggle[hidden] {
+  display: none;
+}
+
+.theme-toggle:focus-visible {
+  outline-color: var(--color-header-focus);
+}
+
+/* View Transition API theme cross-fade. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 180ms;
+  animation-timing-function: ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}

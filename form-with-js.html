@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Contact Sanila Silva about opportunities, projects, and shared interests.">
+    <title>Enhanced Contact Form | Sanila Silva</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="form.js" defer></script>
+    <script src="theme.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Enhanced Contact Form</h1>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="professional/professional.html">Professional Life</a></li>
+                <li><a href="personal/personal.html">Personal Life</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+                <li><a href="form-no-js.html">Contact Form</a></li>
+                <li>
+                    <a href="form-with-js.html" aria-current="page">
+                        Contact Form (JavaScript)
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <button type="button" class="theme-toggle" id="theme-toggle" hidden>
+            Switch to dark theme
+        </button>
+    </header>
+
+    <main>
+        <section aria-labelledby="form-heading">
+            <h2 id="form-heading">Send a Test Message</h2>
+
+            <p id="form-note">
+                All fields are required. Use sample contact information:
+                this form sends your entries to httpbin, which displays
+                them for inspection. It does not send an email or deliver
+                a message to me. If submission is blocked, follow the
+                browser’s validation message to correct the indicated field.
+            </p>
+
+            <form class="contact-form"
+                  action="https://httpbin.org/post"
+                  method="post"
+                  aria-describedby="form-note">
+
+                <div class="form-field">
+                    <label for="name">Name (required)</label>
+
+                    <p class="field-help" id="name-help">
+                        Enter 1–100 characters. Names in any language,
+                        including apostrophes and hyphens, are welcome.
+                    </p>
+
+                    <input type="text"
+                           id="name"
+                           name="name"
+                           autocomplete="name"
+                           minlength="1"
+                           maxlength="100"
+                           aria-describedby="name-help name-error"
+                           required>
+                </div>
+
+                <div class="form-field">
+                    <label for="email">Email (required)</label>
+
+                    <p class="field-help" id="email-help">
+                        Enter an email address, such as student@example.com.
+                    </p>
+
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           autocomplete="email"
+                           aria-describedby="email-help email-error"
+                           required>
+                </div>
+
+                <div class="form-field">
+                    <label for="comments">Comments (required)</label>
+
+                    <p class="field-help" id="comments-help">
+                        Enter 10–1,000 characters so your message
+                        includes enough detail.
+                    </p>
+
+                    <textarea id="comments"
+                              name="comments"
+                              rows="6"
+                              minlength="10"
+                              maxlength="1000"
+                              aria-describedby="comments-help comments-error comments-count"
+                              required></textarea>
+                </div>
+
+                <input type="hidden" name="possible_bot" value="true">
+
+                <input type="hidden"
+                       id="form-errors"
+                       name="form-errors"
+                       value="[]">
+
+                <div id="error-area"
+                     class="form-feedback"
+                     aria-labelledby="error-heading"
+                     hidden>
+                    <h3 id="error-heading">Errors to correct</h3>
+
+                    <ul id="error-list"
+                        aria-live="polite"
+                        aria-atomic="true">
+                        <li id="name-error" hidden></li>
+                        <li id="email-error" hidden></li>
+                        <li id="comments-error" hidden></li>
+                    </ul>
+                </div>
+
+                <div id="info-area"
+                     class="form-feedback"
+                     aria-labelledby="info-heading"
+                     hidden>
+                    <h3 id="info-heading">Message length</h3>
+
+                    <p id="comments-count"
+                       role="status"
+                       aria-live="polite"
+                       aria-atomic="true"></p>
+                </div>
+
+                <button type="submit">Submit test message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sanila Silva</p>
+        <a href="index.html">Return home</a>
+    </footer>
+</body>
+</html>

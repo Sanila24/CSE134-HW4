@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Contact Sanila Silva about opportunities, projects, and shared interests.">
+    <title>Contact | Sanila Silva</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="theme.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Contact Me</h1>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="professional/professional.html">Professional Life</a></li>
+                <li><a href="personal/personal.html">Personal Life</a></li>
+                <li><a href="contacts.html" aria-current="page">Contact</a></li>
+                <li><a href="form-no-js.html">Contact Form</a></li>
+                <li><a href="form-with-js.html">Contact Form (JavaScript)</a></li>
+            </ul>
+        </nav>
+
+        <button type="button" class="theme-toggle" id="theme-toggle" hidden>
+            Switch to dark theme
+        </button>
+    </header>
+
+    <main>
+        <section>
+            <h2>Let’s Connect</h2>
+            <p>
+                I welcome conversations about software, professional
+                opportunities, projects, and shared interests.
+            </p>
+
+            <ul>
+                <li><a href="mailto:ssilva24.career@gmail.com">Email me</a></li>
+                <li><a href="https://www.linkedin.com/in/sanila-silva">LinkedIn</a></li>
+                <li><a href="https://github.com/Sanila7">GitHub</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Send a Message</h2>
+            <p id="form-note">
+                This form is a preview. Message submission is currently
+                unavailable; please use the email link above.
+            </p>
+
+            <form aria-describedby="form-note">
+                <fieldset>
+                    <legend>Your contact information</legend>
+
+                    <p>
+                        <label for="name">Name (required)</label>
+                        <input type="text"
+                               id="name"
+                               name="name"
+                               autocomplete="name"
+                               required>
+                    </p>
+
+                    <p>
+                        <label for="email">Email (required)</label>
+                        <input type="email"
+                               id="email"
+                               name="email"
+                               autocomplete="email"
+                               required>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Your message</legend>
+
+                    <p>
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject">
+                    </p>
+
+                    <p>
+                        <label for="message">Message (required)</label>
+                        <textarea id="message"
+                                  name="message"
+                                  rows="6"
+                                  cols="30"
+                                  required></textarea>
+                    </p>
+                </fieldset>
+
+                <p><button type="submit" disabled>Send message</button></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sanila Silva</p>
+        <a href="index.html">Return home</a>
+    </footer>
+</body>
+</html>

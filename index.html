@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanila Silva | Home</title>
+    <link rel="icon" type="image/jpeg" href="images/profile.jpeg">
+    <link rel="stylesheet" href="styles.css">
+    <script src="theme.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Sanila Silva</h1>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="professional/professional.html">Professional Life</a></li>
+                <li><a href="personal/personal.html">Personal Life</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+                <li><a href="form-no-js.html">Contact Form</a></li>
+                <li><a href="form-with-js.html">Contact Form (JavaScript)</a></li>
+            </ul>
+        </nav>
+
+        <button type="button" class="theme-toggle" id="theme-toggle" hidden>
+            Switch to dark theme
+        </button>
+    </header>
+
+    <main>
+        <personal-intro>
+            <picture>
+                <img src="images/profile.jpeg"
+                     alt="Portrait of Sanila Silva"
+                     width="250">
+            </picture>
+
+            <h2>Welcome</h2>
+            <p>
+                I’m Sanila, and this website shares my professional
+                experience, projects, and personal interests outside of coding.
+            </p>
+        </personal-intro>
+
+        <section>
+            <h2>A Little About My Interests</h2>
+            <p>
+                Soccer has been a big part of my life, both as
+                a player and a fan.
+            </p>
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="100"
+                 height="100"
+                 viewBox="0 0 100 100"
+                 role="img"
+                 aria-labelledby="soccer-title">
+                <title id="soccer-title">A simple soccer ball illustration</title>
+                <circle cx="50"
+                        cy="50"
+                        r="45"
+                        fill="white"
+                        stroke="black"
+                        stroke-width="2">
+                </circle>
+                <polygon points="50,30 69,44 62,66 38,66 31,44"
+                         fill="black">
+                </polygon>
+                <path d="M50 30 L50 5 M69 44 L93 36
+                         M62 66 L77 86 M38 66 L23 86
+                         M31 44 L7 36"
+                      fill="none"
+                      stroke="black"
+                      stroke-width="2">
+                </path>
+            </svg>
+
+            <p>
+                <a href="personal/sports.html">
+                    Learn more about my interest in sports
+                </a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Building This Portfolio</h2>
+            <p>
+                This portfolio is being developed in stages.
+                The progress below represents my current stage
+                in this three-step plan.
+            </p>
+
+            <ol>
+                <li>Build the HTML structure and content.</li>
+                <li>Add styling and refine the layout.</li>
+                <li>Add interactive features.</li>
+            </ol>
+
+            <label for="portfolio-progress">Development progress:</label>
+            <progress id="portfolio-progress" value="2" max="3">
+                2 of 3 stages complete
+            </progress>
+            <p>Stage 2 of 3: Styling and layout.</p>
+        </section>
+
+        <section>
+            <h2>HTML Experiments</h2>
+            <p>
+                Visit my experiments page to see examples of
+                audio, video, canvas, and template elements.
+            </p>
+            <a href="experiments.html">Explore my HTML experiments</a>
+        </section>
+
+        <dialog aria-labelledby="notice-title">
+            <h2 id="notice-title">Portfolio Under Development</h2>
+            <p>
+                This portfolio now includes HTML structure,
+                content, styling, and layout. Additional interactive
+                features are planned for a later stage.
+            </p>
+        </dialog>
+    </main>
+
+    <footer>
+        <div>
+            <p>
+                &copy; 2026 <span class="author-name">Sanila Silva</span>
+            </p>
+            <a href="contacts.html">Contact me</a>
+        </div>
+    </footer>
+
+    <hello-world></hello-world>
+
+    <script>
+        class HelloWorld extends HTMLElement {
+            connectedCallback() {
+                console.log("Hello World!");
+            }
+        }
+
+        customElements.define("hello-world", HelloWorld);
+    </script>
+</body>
+</html>

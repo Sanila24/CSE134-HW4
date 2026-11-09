@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="HTML experiments demonstrating audio, video, canvas, and template elements.">
+    <title>HTML Experiments | Sanila Silva</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="theme.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>HTML Experiments</h1>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="professional/professional.html">Professional Life</a></li>
+                <li><a href="personal/personal.html">Personal Life</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+                <li><a href="form-no-js.html">Contact Form</a></li>
+                <li><a href="form-with-js.html">Contact Form (JavaScript)</a></li>
+            </ul>
+        </nav>
+
+        <button type="button" class="theme-toggle" id="theme-toggle" hidden>
+            Switch to dark theme
+        </button>
+    </header>
+
+    <main>
+        <p>
+            This page demonstrates HTML elements for audio,
+            video, drawing, and reusable content.
+        </p>
+
+        <section>
+            <h2>Audio: Welcome From UC San Diego’s Colleges</h2>
+            <p>
+                Listen to a welcome message from UC San Diego’s colleges.
+            </p>
+
+            <audio controls preload="metadata">
+                <source src="media/ucsd-welcome.mp3" type="audio/mpeg">
+                Your browser does not support HTML audio.
+            </audio>
+
+            <p>
+                <a href="media/ucsd-welcome.mp3">Download the audio</a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Video: Welcome From UC San Diego’s Colleges</h2>
+            <p>
+                Watch a welcome video from UC San Diego’s colleges.
+            </p>
+
+            <video controls width="320" preload="metadata">
+                <source src="media/ucsd-welcome.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+            </video>
+
+            <p>
+                <a href="media/ucsd-welcome.mp4">Download the video</a>
+            </p>
+        </section>
+
+        <section>
+            <h2>YouTube Embed</h2>
+            <p>
+                This example embeds a YouTube player using an iframe.
+            </p>
+
+            <iframe width="320"
+                    height="180"
+                    src="https://www.youtube.com/embed/uKaYzDPRvY0"
+                    title="YouTube video player"
+                    allowfullscreen>
+            </iframe>
+
+            <p>
+                <a href="https://www.youtube.com/watch?v=uKaYzDPRvY0">
+                    Watch directly on YouTube
+                </a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Canvas Drawing</h2>
+            <p>
+                A small amount of JavaScript draws a rectangle
+                inside the canvas below.
+            </p>
+
+            <canvas id="drawing" width="300" height="150">
+                This example draws the outline of a rectangle.
+            </canvas>
+
+            <noscript>
+                <p>
+                    JavaScript is disabled, so the canvas drawing
+                    cannot be displayed.
+                </p>
+            </noscript>
+        </section>
+
+        <section>
+            <h2>Reusable Content Template</h2>
+            <p>
+                The template element stores HTML for possible reuse.
+                Its contents are intentionally not displayed in this
+                demonstration.
+            </p>
+
+            <template id="project-preview">
+                <article>
+                    <h3>DineRoute</h3>
+                    <p>
+                        A dining recommender that helps UCSD students
+                        decide where and what to eat.
+                    </p>
+                    <a href="professional/project1.html">Explore DineRoute</a>
+                </article>
+            </template>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sanila Silva</p>
+        <a href="index.html">Return home</a>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById("drawing");
+        const context = canvas.getContext("2d");
+
+        if (context) {
+            context.strokeRect(40, 30, 220, 90);
+        }
+    </script>
+</body>
+</html>
